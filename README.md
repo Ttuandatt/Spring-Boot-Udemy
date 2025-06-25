@@ -1,6 +1,6 @@
-- Section 4:
-Trọng tâm cần nắm trong phần này:
-Mục tiêu chính cần làm được:
+# Section 4:
+- Trọng tâm cần nắm trong phần này:
++ Mục tiêu chính cần làm được:
 ✅ Tạo REST API	Dùng @RestController, tạo các endpoint (@GetMapping, @PostMapping, ...)
 ✅ Xử lý dữ liệu JSON	Nhận dữ liệu JSON từ client (qua @RequestBody), trả dữ liệu JSON về
 ✅ Tạo lớp POJO	Dùng để biểu diễn dữ liệu (ví dụ: Employee, Student...)
