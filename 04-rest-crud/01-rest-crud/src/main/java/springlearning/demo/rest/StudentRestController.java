@@ -1,6 +1,8 @@
 package springlearning.demo.rest;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springlearning.demo.entity.Student;
@@ -12,16 +14,29 @@ import java.util.List;
 @RequestMapping("/api")
 public class StudentRestController {
 
-    @GetMapping("/students")
-    public List<Student> getStudents(){
-        List<Student> studentList = new ArrayList<>();
+    List<Student> studentList = new ArrayList<>();
 
+
+    @PostConstruct
+    public void loadData(){
         //We temporarily hardcode some data
         studentList.add(new Student("John", "Doe"));
         studentList.add(new Student("Jane", "White"));
         studentList.add(new Student("Jim", "Beam"));
+    }
+
+    // Keeping the initialization and hardcoded data inside the @GetMapping method would recreate the list and add the same students every time the endpoint is called, resulting in a new list for each request.
+    // By moving the initialization and data loading to a field and the @PostConstruct method, the list is created and populated only once when the controller is initialized, so all requests return the same list instance and avoid unnecessary object creation.
+    @GetMapping("/students")
+    public List<Student> getStudents(){
 
         return studentList;
+    }
+
+    //The @PathVariable annotation is used in Spring Boot to extract values from the URI path and bind them to method parameters. In your code, it allows the studentId value from the URL /students/{studentId} to be passed into the getStudentById method, so you can retrieve the specific student by their index or ID.
+    @GetMapping("/students/{studentId}")
+    public Student getStudentById(@PathVariable int studentId){
+        return studentList.get(studentId);
     }
 
 }
