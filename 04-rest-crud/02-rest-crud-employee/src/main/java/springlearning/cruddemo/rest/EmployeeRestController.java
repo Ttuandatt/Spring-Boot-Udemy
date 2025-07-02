@@ -5,20 +5,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springlearning.cruddemo.dao.EmployeeDAO;
 import springlearning.cruddemo.entity.Employee;
+import springlearning.cruddemo.service.EmployeeService;
+import springlearning.cruddemo.service.EmployeeServiceImplement;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class EmployeeRestController {
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
-    public EmployeeRestController(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 }
