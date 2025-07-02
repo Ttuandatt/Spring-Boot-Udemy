@@ -2,6 +2,7 @@ package springlearning.cruddemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import springlearning.cruddemo.dao.EmployeeDAO;
 import springlearning.cruddemo.entity.Employee;
 
@@ -20,5 +21,21 @@ public class EmployeeServiceImplement implements EmployeeService{
     @Override
     public List<Employee> findAll() {
         return employeeDAO.findAll();
+    }
+
+    @Override
+    public Employee findById(int id) {
+        return employeeDAO.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public Employee save(Employee employee) {
+        return employeeDAO.save(employee);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        employeeDAO.deleteById(id);
     }
 }
