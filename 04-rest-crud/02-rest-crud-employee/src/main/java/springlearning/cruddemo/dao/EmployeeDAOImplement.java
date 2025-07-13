@@ -1,9 +1,12 @@
 package springlearning.cruddemo.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import springlearning.cruddemo.entity.Employee;
+import springlearning.cruddemo.exception.AppException;
+import springlearning.cruddemo.exception.ErrorCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +57,7 @@ public class EmployeeDAOImplement implements EmployeeDAO{
     }
 
     @Override
+    @Transactional
     public void deleteById(int id) {
         // Find the employee by ID
         Employee employee = entityManager.find(Employee.class, id);
@@ -62,7 +66,7 @@ public class EmployeeDAOImplement implements EmployeeDAO{
         if(employee != null){
             entityManager.remove(employee); // Remove the employee if found
         } else {
-            throw new RuntimeException("Employee with id " + id + " not found"); // Throw an exception if not found
+            throw new AppException(ErrorCode.EMPLOYEE_NOT_FOUND); // Throw an exception if not found
         }
     }
 }

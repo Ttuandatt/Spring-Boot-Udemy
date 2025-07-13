@@ -3,10 +3,10 @@ package springlearning.cruddemo.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.web.bind.annotation.*;
-import springlearning.cruddemo.dao.EmployeeDAO;
 import springlearning.cruddemo.entity.Employee;
+import springlearning.cruddemo.exception.AppException;
+import springlearning.cruddemo.exception.ErrorCode;
 import springlearning.cruddemo.service.EmployeeService;
-import springlearning.cruddemo.service.EmployeeServiceImplement;
 
 import java.util.List;
 import java.util.Map;
@@ -61,11 +61,14 @@ public class EmployeeRestController {
         // Exception handling
         // If the employee is not found, throw an exception
         if(employee == null){
-            throw new RuntimeException("Employee id not found: " + employeeId);
+            // Trong controller
+            if (employee == null) {
+                throw new AppException(ErrorCode.EMPLOYEE_NOT_FOUND);
+            }
         }
         // If request body is empty, throw an exception
         if(patchPayload == null){
-            throw new RuntimeException("Request body is empty");
+            throw new AppException(ErrorCode.NULL_PAYLOAD);
         }
         // If request body contains "id", throw an exception
         if(patchPayload.containsKey("id")){
@@ -95,5 +98,18 @@ public class EmployeeRestController {
 
         // Convert the merged ObjectNode back to an Employee object - Chuyển ObjectNode đã merge về lại đối tượng Employee.
         return objectMapper.convertValue(employeeNode, Employee.class);
+    }
+
+    @DeleteMapping("/employees/{employeeId}")
+    private String deleteEmployee(@PathVariable int employeeId){
+        Employee employee = employeeService.findById(employeeId);
+
+        if(employee == null){
+            throw  new AppException(ErrorCode.EMPLOYEE_NOT_FOUND);
+        }
+
+        employeeService.deleteById(employeeId);
+
+        return "Deleted employee id - " + employeeId;
     }
 }
