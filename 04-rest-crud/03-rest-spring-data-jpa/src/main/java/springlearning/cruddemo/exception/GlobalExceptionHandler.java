@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
          errorResponse.setStatus(errorCode.getCode());
          errorResponse.setMessage(errorCode.getMessage());
          errorResponse.setTimeStamp(new java.sql.Time(System.currentTimeMillis()));
-          return ResponseEntity.badRequest().body(errorResponse);
+         return ResponseEntity.badRequest().body(errorResponse);
      }
 }
 
