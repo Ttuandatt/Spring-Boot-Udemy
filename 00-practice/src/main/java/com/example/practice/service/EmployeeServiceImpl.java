@@ -37,6 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());
+        existingEmployee.setEmail(employee.getEmail());
         return employeeRepository.save(existingEmployee);
     }
 
