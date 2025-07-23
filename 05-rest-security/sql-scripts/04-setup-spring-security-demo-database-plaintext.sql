@@ -49,4 +49,8 @@ VALUES
 ('susan','ROLE_MANAGER'),
 ('susan','ROLE_ADMIN');
 
+select * from users;
+select * from employee;
+select * from authorities;
+
 

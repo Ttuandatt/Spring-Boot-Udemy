@@ -8,43 +8,62 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
 
-    // This code configures an in-memory user details manager with three users: john, mary, and susan.
-    // Each user has a username, password, and roles assigned.
-    // We will use database authentication in the next section, but for now, this is a simple way to set up users for testing purposes.
+    /*
+    // In-memory user setup for testing purposes
+    // Each user has username, password, and role(s)
     @Bean
     public InMemoryUserDetailsManager userDetailsManager(){
         UserDetails john = User.builder().username("john").password("{noop}123").roles("EMPLOYEE").build();
-        UserDetails mary = User.builder().username("mary").password("{noop}123").roles("EMPLOYEE","MANAGER").build();
+        UserDetails mary = User.builder().username("mary").password("{noop}123").roles("EMPLOYEE", "MANAGER").build();
         UserDetails susan = User.builder().username("susan").password("{noop}123").roles("EMPLOYEE", "MANAGER", "ADMIN").build();
 
-        return new InMemoryUserDetailsManager(john,mary,susan);
+        return new InMemoryUserDetailsManager(john, mary, susan);
+    }
+    */
+
+    // Using database-backed authentication instead of in-memory users
+    @Bean
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
+        // JdbcUserDetailsManager:
+        // - Retrieves user credentials and authorities from a relational database
+        // - Requires a schema with tables `users` and `authorities` (or equivalent)
+        // - Spring Security will use this to authenticate users and load their roles
+        // In general, we use data from a database to manage users and roles
+        return new JdbcUserDetailsManager(dataSource);
     }
 
     @Bean
     public SecurityFilterChain roleRestriction(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(configurer->
+        http.authorizeHttpRequests(configurer ->
                 configurer
+                        // Only users with role EMPLOYEE can perform GET requests
                         .requestMatchers(HttpMethod.GET, "/api/employees").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.GET, "api/employees/**").hasRole("EMPLOYEE")
+
+                        // Only users with role MANAGER can POST, PUT, or PATCH
                         .requestMatchers(HttpMethod.POST, "api/employees").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PUT, "api/employees/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PATCH, "api/employees/**").hasRole("MANAGER")
+
+                        // Only users with role ADMIN can DELETE
                         .requestMatchers(HttpMethod.DELETE, "api/employees/**").hasRole("ADMIN")
         );
 
-        //use HTTP Basic authentication
+        // Use HTTP Basic authentication (username/password in browser popup or headers)
         http.httpBasic(Customizer.withDefaults());
 
-        // disable CSRF (cross-site request forgery) protection
-        // Note: Disabling CSRF is not recommended for production applications, but it is acceptable for testing purposes.
+        // Disable CSRF protection (okay for REST APIs or testing, but not recommended for production web apps)
         http.csrf(csrf -> csrf.disable());
 
         return http.build();
     }
 }
-
