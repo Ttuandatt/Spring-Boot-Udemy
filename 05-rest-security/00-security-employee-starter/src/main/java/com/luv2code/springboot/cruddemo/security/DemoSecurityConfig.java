@@ -38,7 +38,19 @@ public class DemoSecurityConfig {
         // - Requires a schema with tables `users` and `authorities` (or equivalent)
         // - Spring Security will use this to authenticate users and load their roles
         // In general, we use data from a database to manage users and roles
-        return new JdbcUserDetailsManager(dataSource);
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        // define query to load user by username
+        jdbcUserDetailsManager.setUsersByUsernameQuery(
+                "select user_id, pw, active from members where user_id = ?"
+        );
+
+        // define query to load authorities/roles by username
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+                "select user_id, role from roles where user_id = ?"
+        );
+
+        return jdbcUserDetailsManager;
     }
 
     @Bean
