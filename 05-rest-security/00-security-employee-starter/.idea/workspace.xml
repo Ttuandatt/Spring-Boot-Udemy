@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="390fc13f-520c-4402-8362-b9717dbdc606" name="Changes" comment="- Học đến video số 171. Spring Boot REST API Security -Custom Tables - Coding - Part 3&#10;- Tóm tắt: Set mật khẩu lưu xuống database sang dạng Bcrypt để bảo mật. Custom method userDetailsManager để lấy thông tin user, role của user đó theo ý mình, k theo default của Spring" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ttuandatt&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ttuandatt/Spring-Boot-Udemy.git&quot;,
+    &quot;accountId&quot;: &quot;031cacc9-682b-40d3-bc2e-927847342c19&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="30EZpMjSYcgUGr3tSIt5Nbuxtqh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CruddemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/adminmoi/OneDrive/Documents 1/IT/Backend/Spring Boot Udemy/05-rest-security/00-security-employee-starter&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="CruddemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="cruddemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.luv2code.springboot.cruddemo.CruddemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="390fc13f-520c-4402-8362-b9717dbdc606" name="Changes" comment="" />
+      <created>1753194876758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753194876758</updated>
+      <workItem from="1753194876759" duration="816000" />
+      <workItem from="1753195749318" duration="1541000" />
+      <workItem from="1753197314643" duration="1180000" />
+      <workItem from="1753243483117" duration="318000" />
+      <workItem from="1753277688606" duration="1456000" />
+      <workItem from="1753280246649" duration="1620000" />
+      <workItem from="1753585508003" duration="705000" />
+      <workItem from="1753770632833" duration="2249000" />
+    </task>
+    <task id="LOCAL-00001" summary="- Update code đến video 157">
+      <option name="closed" value="true" />
+      <created>1753196968319</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753196968319</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- Học đến video số 160. Spring Boot REST API Security - PATCH - Coding&#10;- Tóm tắt: Thêm role restriction cho phương thức PATCH">
+      <option name="closed" value="true" />
+      <created>1753278242192</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753278242192</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Học đến video số 164. Spring Boot REST API Security - JDBC Authentication - Plain Text - Coding Part 3&#10;- Tóm tắt: Authorize user bằng data từ database">
+      <option name="closed" value="true" />
+      <created>1753285013778</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753285013778</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- Học đến video số 171. Spring Boot REST API Security -Custom Tables - Coding - Part 3&#10;- Tóm tắt: Set mật khẩu lưu xuống database sang dạng Bcrypt để bảo mật. Custom method userDetailsManager để lấy thông tin user, role của user đó theo ý mình, k theo default của Spring">
+      <option name="closed" value="true" />
+      <created>1753771580771</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753771580771</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Update code đến video 157" />
+    <MESSAGE value="- Học đến video số 160. Spring Boot REST API Security - PATCH - Coding&#10;- Tóm tắt: Thêm role restriction cho phương thức PATCH" />
+    <MESSAGE value="- Học đến video số 164. Spring Boot REST API Security - JDBC Authentication - Plain Text - Coding Part 3&#10;- Tóm tắt: Authorize user bằng data từ database" />
+    <MESSAGE value="- Học đến video số 171. Spring Boot REST API Security -Custom Tables - Coding - Part 3&#10;- Tóm tắt: Set mật khẩu lưu xuống database sang dạng Bcrypt để bảo mật. Custom method userDetailsManager để lấy thông tin user, role của user đó theo ý mình, k theo default của Spring" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Học đến video số 171. Spring Boot REST API Security -Custom Tables - Coding - Part 3&#10;- Tóm tắt: Set mật khẩu lưu xuống database sang dạng Bcrypt để bảo mật. Custom method userDetailsManager để lấy thông tin user, role của user đó theo ý mình, k theo default của Spring" />
+  </component>
+</project>
