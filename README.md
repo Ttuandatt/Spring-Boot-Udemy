@@ -97,3 +97,56 @@ Học phần này để:
 - Biết cách xác thực từ cơ sở dữ liệu với bảng mặc định hoặc tùy chỉnh
 - Biết cách mã hóa mật khẩu an toàn với BCrypt
 - Tự tin triển khai hệ thống REST API an toàn và chuyên nghiệp
+
+-------------------------------------------------------------------------------
+# Section 6: Spring MVC với Thymeleaf và Form Validation
+## 📌 Trọng tâm cần nắm trong phần này:
+### 🎯 Mục tiêu chính cần làm được:
+
+- ✅ **Sử dụng Spring MVC kết hợp Thymeleaf
+Tạo các view động hiển thị dữ liệu từ Controller → HTML.
+
+- ✅ **Binding dữ liệu từ Form vào Model
+Dùng @ModelAttribute, th:field để liên kết dữ liệu form với Java object.
+
+- ✅ **Tạo Form với các loại input
+Hiển thị & xử lý: Text fields, Drop-downs, Radio Buttons, Checkboxes.
+
+- ✅ X**ử lý Request Params và Mapping
+Dùng @GetMapping, @PostMapping, @RequestParam, @ModelAttribute.
+
+- ✅ **Thêm dữ liệu vào Spring MVC Model
+Dùng model.addAttribute() để truyền dữ liệu qua view.
+
+- ✅ **Form Validation
+Dùng annotation như @NotNull, @Size, @Pattern, @Min, @Max để validate dữ liệu đầu vào.
+
+- ✅ **Xử lý lỗi form và hiển thị thông báo
+Sử dụng BindingResult, errors.hasErrors() để xử lý lỗi người dùng nhập sai.
+
+- ✅ **Tạo Custom Validator
+Tạo class validator riêng dùng ConstraintValidator và @CustomAnnotation.
+
+- ✅ **Xử lý dữ liệu và tùy chỉnh lỗi với @InitBinder
+Dùng để định nghĩa custom editor hoặc pre-process dữ liệu nhập vào.
+---
+## 🧱 Ví dụ:
+Ví dụ mẫu về Form Student:
+| Tính năng                              | Mô tả                                                               |
+|----------------------------------------|---------------------------------------------------------------------|
+| Gửi dữ liệu qua form HTML              | POST /processForm, nhận dữ liệu từ input và gán vào model           |
+| Validate độ dài tên                    | @Size(min=1) sẽ báo lỗi nếu tên để trống                            |
+| Validate email                         | @Pattern với regex để kiểm tra định dạng email                      |
+| Dùng Drop-down list với th:each        | Lặp qua danh sách quốc gia, ngành học,... trong form                |
+| Hiển thị thông báo lỗi cụ thể          | th:errors="*{firstName}" hiển thị lỗi ngay bên dưới field nhập      |
+| Custom Validation                      | Tạo annotation như @CourseCode để kiểm tra định dạng riêng          |
+
+
+## 🔁 Tổng kết:
+Học phần này để:
+- Hiểu rõ cách kết nối frontend (HTML) với backend (Controller)
+- Xử lý form phức tạp: nhiều field, nhiều loại input, validate có điều kiện
+- Làm chủ Thymeleaf, @ModelAttribute, và Form Binding
+- Tạo ứng dụng Spring MVC thực tế có tính tương tác và kiểm tra dữ liệu đầu vào
+- Sẵn sàng xây dựng hệ thống nhập liệu hoặc hệ thống quản lý có form chuyên nghiệp
+
