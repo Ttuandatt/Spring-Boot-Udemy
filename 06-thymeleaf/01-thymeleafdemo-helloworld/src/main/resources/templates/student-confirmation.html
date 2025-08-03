@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Input Form</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/css/demo.css}">
+</head>
+<body>
+<h3 class="funny">Student Confirmation</h3>
+The student <span class="funny" th:text="${student.getFirstName()} + '' + ${student.getLastName()}"></span> has been confirmed successfully!<br>
+</body>
+</html>
