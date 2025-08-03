@@ -4,8 +4,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HelloWorldController {
@@ -43,7 +42,8 @@ public class HelloWorldController {
     }
 
     // controler to read form data and add data to the model version three
-    @RequestMapping("/processFormVersionThree")
+    //@RequestMapping(path="/processFormVersionThree", method= RequestMethod.GET)
+    @PostMapping("/processFormVersionThree") // this is just an alternative way to define the same method
     public String letsShoutDude2(@RequestParam("studentName") String theName, Model model){
 
         // no need to read the request parameter from the HTML form, Spring will do it for us as we use @RequestParam
