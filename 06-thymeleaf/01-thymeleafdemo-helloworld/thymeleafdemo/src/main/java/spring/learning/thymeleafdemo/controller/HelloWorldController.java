@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
@@ -39,5 +40,23 @@ public class HelloWorldController {
 
 
         return "helloworld"; // helloworld là tên của file helloworld.html trong thư mục templates
+    }
+
+    // controler to read form data and add data to the model version three
+    @RequestMapping("/processFormVersionThree")
+    public String letsShoutDude2(@RequestParam("studentName") String theName, Model model){
+
+        // no need to read the request parameter from the HTML form, Spring will do it for us as we use @RequestParam
+
+        // convert the data to all caps
+        theName = theName.toUpperCase();
+
+        // create the message
+        String result = "Hey my friend from v3! " + theName;
+
+        // add message to the model
+        model.addAttribute("message", result);
+
+        return "helloworld";
     }
 }
