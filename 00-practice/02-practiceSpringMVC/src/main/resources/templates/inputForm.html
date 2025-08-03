@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>INPUT FORM</title>
+        <link rel="stylesheet" th:href="@{/css/demo.css}">
+    </head>
+
+    <body>
+        <h1 class="funny">HELLO! WELCOME TO INPUT FORM <3 4 5</h1>
+        <form th:action="@{/processInputForm}" method="GET">
+            <input type="text" name="studentName" placeholder="What's your name?"><br><br>
+            <input type="number" name="age" placeholder="How old are you?"><br><br>
+            <input type="email" name="email" placeholder="What's your email?"><br><br>
+            <input type="tel" name="phone" placeholder="What's your phone?"><br><br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
+</html>

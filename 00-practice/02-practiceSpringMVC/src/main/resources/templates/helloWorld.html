@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Hello World</title>
+        <link rel="stylesheet" th:href="@{/css/demo.css}">
+    </head>
+
+    <body>
+        Hello <span th:text="${studentName}" class="funny"></span>
+        <br>
+        Your age is <span th:text="${age}"></span>
+        <br>
+        Your email is <span th:text="${email}"></span>
+        <br>
+        Your phone is <span th:text="${phone}"></span>
+        <br>
+    </body>
+</html>
