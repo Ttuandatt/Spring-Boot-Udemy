@@ -9,9 +9,12 @@
         Fisrt Name: <input type="text" th:field="*{firstName}" placeholder="Enter first name" /><br><br>
         Last Name: <input type="text" th:field="*{lastName}" placeholder="Enter last name" /><br><br>
         Country:
-        <select th:field="*{country}">
+        <select th:field="*{country}">  // *{country} is the field in the Student class
             <option th:each="tempCountry: ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
         </select><br><br>
+        Favorite Language: // *{favoriteLanguage} is the field in the Student class
+        <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${favoriteLanguages}" th:value="${tempLang}" th:text="${tempLang}"/>
+        <br><br>
         <input type="submit" value="Submit" />
     </form>
 </body>

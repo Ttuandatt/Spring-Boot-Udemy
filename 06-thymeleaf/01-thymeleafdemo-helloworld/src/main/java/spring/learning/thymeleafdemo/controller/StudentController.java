@@ -15,6 +15,9 @@ public class StudentController {
     @Value("${countries}") // Injecting a list of countries from application.properties
     private List<String> countryList;
 
+    @Value("${languages}") // Injecting a list of favorite languages from application.properties
+    private List<String> favoriteLanguageList;
+
     @GetMapping("/showStudentForm")
     public String showForm(Model model){
         // create a new student object
@@ -25,6 +28,9 @@ public class StudentController {
 
         // add the list of countries to the model
         model.addAttribute("countries", countryList);
+
+        // add the list of favorite languages to the model
+        model.addAttribute("favoriteLanguages", favoriteLanguageList);
 
         return "student-form"; // student-form là tên của file student-form.html trong thư mục templates
     }

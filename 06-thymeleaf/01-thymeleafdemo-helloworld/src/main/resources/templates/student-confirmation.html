@@ -7,7 +7,8 @@
 </head>
 <body>
 <h3 class="funny">Student Confirmation</h3>
-The student <span class="funny" th:text="${student.getFirstName()} + ' ' + ${student.getLastName()}"></span> has been confirmed successfully!<br>
-Country: <span class="funny" th:text="${student.getCountry()}"></span>
+The student <span class="funny" th:text="${student.firstName} + ' ' + ${student.lastName}"></span> has been confirmed successfully!<br>
+Country: <span class="funny" th:text="${student.country}"></span><br>
+Favorite language: <span class="funny" th:text="${student.favoriteLanguage}"></span>
 </body>
 </html>
