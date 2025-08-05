@@ -10,10 +10,7 @@
         Last Name: <input type="text" th:field="*{lastName}" placeholder="Enter last name" /><br><br>
         Country:
         <select th:field="*{country}">
-            <option th:value="Brazil">Brazil</option>
-            <option th:value="Canada">Canada</option>
-            <option th:value="France">France</option>
-            <option th:value="Mexico">Mexico</option>
+            <option th:each="tempCountry: ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
         </select><br><br>
         <input type="submit" value="Submit" />
     </form>
