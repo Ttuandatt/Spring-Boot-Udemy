@@ -112,7 +112,7 @@ Dùng @ModelAttribute, th:field để liên kết dữ liệu form với Java ob
 - ✅ **Tạo Form với các loại input
 Hiển thị & xử lý: Text fields, Drop-downs, Radio Buttons, Checkboxes.
 
-- ✅ X**ử lý Request Params và Mapping
+- ✅ **Xử lý Request Params và Mapping
 Dùng @GetMapping, @PostMapping, @RequestParam, @ModelAttribute.
 
 - ✅ **Thêm dữ liệu vào Spring MVC Model
