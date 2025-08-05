@@ -3,16 +3,22 @@
     <head>
         <title>INPUT FORM</title>
         <link rel="stylesheet" th:href="@{/css/demo.css}">
+        <meta charset="utf-8" />
     </head>
 
     <body>
         <h1 class="funny">HELLO! WELCOME TO INPUT FORM <3 4 5</h1>
-        <form th:action="@{/processInputForm}" method="GET">
-            <input type="text" name="studentName" placeholder="What's your name?"><br><br>
-            <input type="number" name="age" placeholder="How old are you?"><br><br>
-            <input type="email" name="email" placeholder="What's your email?"><br><br>
-            <input type="tel" name="phone" placeholder="What's your phone?"><br><br>
-            <input type="submit" name="submit" value="Submit">
+        <form th:action="@{/processInputForm}" th:object="${student}" method="POST">
+            First Name: <input type="text" th:field="*{firstName}" placeholder="Enter your first name"/><br><br>
+            Last Name: <input type="text" th:field="*{lastName}" placeholder="Enter your last name"/><br><br>
+            Country:
+            <select th:field="*{country}"> // *{country} is the field in the Student class
+                <option th:each="tempCountry: ${countryList}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+            </select><br><br>
+            Favorite Programming Language: <!-- *{favoriteLanguage} is the field in the Student class -->
+            <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${programingLanguages}" th:value="${tempLang}" th:text="${tempLang}"/><br><br>
+
+            <input type="submit" value="Submit"/>
         </form>
     </body>
 </html>

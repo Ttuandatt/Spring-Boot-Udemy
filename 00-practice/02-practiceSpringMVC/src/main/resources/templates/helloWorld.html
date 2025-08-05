@@ -6,13 +6,9 @@
     </head>
 
     <body>
-        Hello <span th:text="${studentName}" class="funny"></span>
-        <br>
-        Your age is <span th:text="${age}"></span>
-        <br>
-        Your email is <span th:text="${email}"></span>
-        <br>
-        Your phone is <span th:text="${phone}"></span>
-        <br>
+        <h3 class="funny">Student Confirmation</h3>
+        The student <span class="funny" th:text="${student.firstName} + ' ' + ${student.lastName}"></span> has been confirmed successfully!<br>
+        Country: <span class="funny" th:text="${student.country}"></span><br>
+        Favorite programming language: <span class="funny" th:text="${student.favoriteLanguage}"></span>
     </body>
 </html>
