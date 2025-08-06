@@ -15,10 +15,13 @@ import java.util.List;
 public class HelloController {
 
     @Value("${countries}") // Injecting a list of countries from application.properties
-    private List<String> countryList;
+    private List<String> countries;
 
     @Value("${programmingLanguages}") // Injecting a list of programming languages from application.properties
     private List<String> programingLanguages;
+
+    @Value("${systems}") // Injecting a list of favorite operating systems from application.properties
+    private List<String> systems;
 
 
     @GetMapping("/showInputForm")
@@ -31,10 +34,13 @@ public class HelloController {
         model.addAttribute("student", student);
 
         // Add the list of countries to the model
-        model.addAttribute("countryList", countryList);
+        model.addAttribute("countries", countries);
 
         // Add the list of programming languages to the model
         model.addAttribute("programingLanguages", programingLanguages);
+
+        // Add the list of favorite operating systems to the model
+        model.addAttribute("systems", systems);
 
         // Return the name of the HTML template to be rendered
         return "inputForm"; // inputForm là tên của file inputForm.html trong thư mục templates

@@ -1,21 +1,25 @@
 package com.example.practiceSpringMVC.model;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
     private String country;
     private String favoriteLanguage;
+    private List<String> favoriteOS;
 
     // Constructors
     public Student() {
         // no-arg constructor
     }
 
-    public Student(String firstName, String lastName, String country, String favoriteLanguage) {
+    public Student(String firstName, String lastName, String country, String favoriteLanguage, List<String> favoriteOS) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.country = country;
         this.favoriteLanguage = favoriteLanguage;
+        this.favoriteOS = favoriteOS;
     }
 
     // Getters and Setters
@@ -49,5 +53,13 @@ public class Student {
 
     public void setFavoriteLanguage(String favoriteLanguage) {
         this.favoriteLanguage = favoriteLanguage;
+    }
+
+    public List<String> getFavoriteOS() {
+        return favoriteOS;
+    }
+
+    public void setFavoriteOS(List<String> favoriteOS) {
+        this.favoriteOS = favoriteOS;
     }
 }
