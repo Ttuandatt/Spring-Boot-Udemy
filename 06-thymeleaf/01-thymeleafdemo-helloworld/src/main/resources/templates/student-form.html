@@ -12,9 +12,12 @@
         <select th:field="*{country}">  // *{country} is the field in the Student class
             <option th:each="tempCountry: ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
         </select><br><br>
-        Favorite Language: // *{favoriteLanguage} is the field in the Student class
-        <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${favoriteLanguages}" th:value="${tempLang}" th:text="${tempLang}"/>
+        Favorite Language: <!--*{favoriteLanguage} is the field in the Student class-->
+        <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${languages}" th:value="${tempLang}" th:text="${tempLang}"/>
         <br><br>
+        Favorite OS:
+        <input type="checkbox" th:field="*{favoriteOS}" th:each="tempOS: ${systems}" th:value="${tempOS}" th:text="${tempOS}"/><br><br>
+
         <input type="submit" value="Submit" />
     </form>
 </body>

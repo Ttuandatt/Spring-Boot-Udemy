@@ -13,10 +13,13 @@ import java.util.List;
 @Controller
 public class StudentController {
     @Value("${countries}") // Injecting a list of countries from application.properties
-    private List<String> countryList;
+    private List<String> countries;
 
     @Value("${languages}") // Injecting a list of favorite languages from application.properties
-    private List<String> favoriteLanguageList;
+    private List<String> languages;
+
+    @Value("${systems}") // Injecting a list of favorite operating systems from application.properties
+    private List<String> systems;
 
     @GetMapping("/showStudentForm")
     public String showForm(Model model){
@@ -27,10 +30,13 @@ public class StudentController {
         model.addAttribute("student", student);
 
         // add the list of countries to the model
-        model.addAttribute("countries", countryList);
+        model.addAttribute("countries", countries);
 
         // add the list of favorite languages to the model
-        model.addAttribute("favoriteLanguages", favoriteLanguageList);
+        model.addAttribute("languages", languages);
+
+        // add a list of favorite operating systems
+        model.addAttribute("systems", systems);
 
         return "student-form"; // student-form là tên của file student-form.html trong thư mục templates
     }
