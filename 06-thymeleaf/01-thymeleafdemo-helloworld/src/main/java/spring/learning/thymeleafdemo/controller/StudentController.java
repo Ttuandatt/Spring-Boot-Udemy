@@ -22,7 +22,7 @@ public class StudentController {
     private List<String> systems;
 
     @GetMapping("/showStudentForm")
-    public String showForm(Model model){
+    public String showForm(Model model){ // Model is used to pass data to the view
         // create a new student object
         Student student = new Student();
 
