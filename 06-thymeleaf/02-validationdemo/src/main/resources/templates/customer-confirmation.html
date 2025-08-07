@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    The cusomter <span style="color: red" th:text="${customer.firstName} + ' ' + ${customer.lastName}" ></span> has been confirmed successfully!<br>
+    The cusomter <span style="color: red" th:text="${customer.firstName} + ' ' + ${customer.lastName}" ></span> has been confirmed successfully!<br><br>
+    Age: <span th:text="${customer.age}" style="color: red"></span>
 </body>
 </html>

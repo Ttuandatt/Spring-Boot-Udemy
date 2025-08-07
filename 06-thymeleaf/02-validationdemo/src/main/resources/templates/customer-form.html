@@ -9,15 +9,23 @@
     <form th:action="@{/processCustomerForm}" th:object="${customer}" method="POST">
         First Name: <input type="text" th:field="*{firstName}"/><br><br>
         Last Name: <input type="text" th:field="*{lastName}"/><span style="color: red"> *</span>
-
         <!-- Add error message for last name -->
         <span th:if="${#fields.hasErrors('lastName')}"
               th:errors="*{lastName}"
               class="error">
         </span>
+        <br><br>Age: <input type="text" th:field="*{age}"/>
+        <!-- Add error message for age -->
+        <span th:if="${#fields.hasErrors('age')}"
+              th:errors="*{age}"
+              class="error">
+        </span>
 
 
-        <br><input type="submit" value="Submit"/><br><br>
+
+
+
+        <br><br><input type="submit" value="Submit"/><br><br>
         <span style="color: red">Asterick (*) indicates a required field.</span><br><br>
     </form>
 </body>
