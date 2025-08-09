@@ -20,6 +20,12 @@
               th:errors="*{age}"
               class="error">
         </span>
+        <br><br>Postal Code: <input type="text" th:field="*{postalCode}"/>
+        <!-- Add error message for postal code -->
+        <span th:if="${#fields.hasErrors('postalCode')}"
+              th:errors="*{postalCode}">
+              class="error">
+        </span>
 
 
 
