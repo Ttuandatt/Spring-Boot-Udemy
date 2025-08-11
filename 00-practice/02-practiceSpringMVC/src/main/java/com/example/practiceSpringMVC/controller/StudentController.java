@@ -1,10 +1,11 @@
 package com.example.practiceSpringMVC.controller;
 
 import com.example.practiceSpringMVC.model.Student;
-import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-public class HelloController {
+public class StudentController {
 
     @Value("${countries}") // Injecting a list of countries from application.properties
     private List<String> countries;
@@ -24,7 +25,7 @@ public class HelloController {
     private List<String> systems;
 
 
-    @GetMapping("/showInputForm")
+    @GetMapping("/showStudentForm")
     public String showInputForm(Model model) {
 
         // Add an empty Student object to the model
@@ -46,11 +47,19 @@ public class HelloController {
         return "inputForm"; // inputForm là tên của file inputForm.html trong thư mục templates
     }
 
-    @RequestMapping("/processInputForm")
-    public String processInputForm(@ModelAttribute("student") Student student) {
+    @RequestMapping("/processStudentForm")
+    public String processInputForm(@Valid @ModelAttribute("student")Student student, BindingResult bindingResult, Model model) {
         // log the input data (for demonstration purposes)
         System.out.println("The student: " + student.getFirstName() + " " + student.getLastName());
 
-        return "helloWorld"; // helloWorld là tên của file helloWorld.html trong thư mục templates
+        if(bindingResult.hasErrors()) {
+            // If there are validation errors, return to the input form
+            model.addAttribute("countries", countries);
+            model.addAttribute("programingLanguages", programingLanguages);
+            model.addAttribute("systems", systems);
+            return "inputForm"; // inputForm là tên của file inputForm.html trong thư mục templates
+        }else{
+            return "helloWorld"; // helloWorld là tên của file helloWorld.html trong thư mục templates
+        }
     }
 }

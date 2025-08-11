@@ -8,9 +8,23 @@
 
     <body>
         <h1 class="funny">HELLO! WELCOME TO INPUT FORM <3 4 5</h1>
-        <form th:action="@{/processInputForm}" th:object="${student}" method="POST">
-            First Name: <input type="text" th:field="*{firstName}" placeholder="Enter your first name"/><br><br>
-            Last Name: <input type="text" th:field="*{lastName}" placeholder="Enter your last name"/><br><br>
+        <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+            First Name: <input type="text" th:field="*{firstName}" placeholder="Enter your first name"/><span style="color: red"> *</span>
+            <!-- Add error message for first name -->
+            <span th:if="${#fields.hasErrors('firstName')}"
+                  th:errors="*{firstName}"
+                  class="funny">
+            </span><!-- 'firstName' here is the field in the Student class -->
+            <br><br>
+
+            Last Name: <input type="text" th:field="*{lastName}" placeholder="Enter your last name"/><span style="color: red"> *</span>
+            <!-- Add error message for last name -->
+            <span th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}"
+                  class="funny">
+            </span>
+            <br><br>
+
             Country:
             <select th:field="*{country}"> // *{country} is the field in the Student class
                 <option th:each="tempCountry: ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
@@ -19,9 +33,23 @@
             <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLang : ${programingLanguages}" th:value="${tempLang}" th:text="${tempLang}"/><br><br>
             Favorite OS:
             <input type="checkbox" th:field="*{favoriteOS}" th:each="tempOS: ${systems}" th:value="${tempOS}" th:text="${tempOS}"/><br><br>
+            Age:
+            <input type="text" th:field="*{age}"/>
+            <!-- Add error message for age -->
+            <span th:if="${#fields.hasErrors('age')}"
+                  th:errors="*{age}"
+                  class="funny">"
+            ></span><br><br>
+            Postal Code:
+            <input type="text" th:field="*{postalCode}"/>
+            <!-- Add error message for postal code -->
+            <span th:if="${#fields.hasErrors('postalCode')}"
+                  th:errors="*{postalCode}"
+                  class="funny"
+            ></span>
 
 
-            <input type="submit" value="Submit"/>
+            <br><br><input type="submit" value="Submit"/>
         </form>
     </body>
 </html>

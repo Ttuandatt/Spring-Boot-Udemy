@@ -19,7 +19,7 @@ public class CustomerController {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true); // true means trim empty strings to null
-        binder.registerCustomEditor(String.class, stringTrimmerEditor); // Register the StringTrimmerEditor for all String fields. This means that any String field in the Customer class will be trimmed of leading and trailing whitespace.
+        binder.registerCustomEditor(String.class, stringTrimmerEditor); // Register the StringTrimmerEditor for all String fields. This means that any String field in the Customer class will be trimmed of leading and trailing whitespace.b
     }
 
     @GetMapping("/showCustomerForm")

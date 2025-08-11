@@ -12,7 +12,7 @@
         <!-- Add error message for last name -->
         <span th:if="${#fields.hasErrors('lastName')}"
               th:errors="*{lastName}"
-              class="error">
+              class="error">    <!-- 'lastName' here is the field in the Customer class -->
         </span>
         <br><br>Age: <input type="text" th:field="*{age}"/>
         <!-- Add error message for age -->
