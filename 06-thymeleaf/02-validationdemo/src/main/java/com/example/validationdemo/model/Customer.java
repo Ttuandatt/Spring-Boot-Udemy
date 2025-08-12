@@ -1,5 +1,6 @@
 package com.example.validationdemo.model;
 
+import com.example.validationdemo.validation.CourseCode;
 import jakarta.validation.constraints.*;
 
 public class Customer {
@@ -15,14 +16,19 @@ public class Customer {
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 alphanumeric characters are allowed") // regexp = "^[a-zA-Z0-9]{5}": // This regex pattern ensures that the postal code consists of exactly 5 alphanumeric characters (letters and digits).
     private String postalCode;
 
+    @NotNull(message = "Course code is required") // @NotNull: This annotation ensures that the courseCode field cannot be null.
+    @CourseCode(value = "TOPS", message = "must start with TOPS") // @CourseCode: This custom annotation checks that the courseCode starts with the specified prefix "TOPS". If it does not, the provided error message will be displayed.
+    private String courseCode;
+
     // Constructors
     public Customer() {
     }
-    public Customer(String firstName, String lastName, Integer age, String postalCode) {
+    public Customer(String firstName, String lastName, Integer age, String postalCode, String courseCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.postalCode = postalCode;
+        this.courseCode = courseCode;
     }
 
     // Getters and Setters
@@ -49,6 +55,12 @@ public class Customer {
     }
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+    public String getCourseCode() {
+        return courseCode;
+    }
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 
 }
