@@ -52,7 +52,7 @@ Học phần này để:
 - Tự tin **xây dựng backend API** riêng cho frontend hoặc mobile app
 
 
--------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 # Section 5:
 ## 📌 Trọng tâm cần nắm trong phần này:
 ### 🎯 Mục tiêu chính cần làm được:
@@ -98,7 +98,7 @@ Học phần này để:
 - Biết cách mã hóa mật khẩu an toàn với BCrypt
 - Tự tin triển khai hệ thống REST API an toàn và chuyên nghiệp
 
--------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 # Section 6: Spring MVC với Thymeleaf và Form Validation
 ## 📌 Trọng tâm cần nắm trong phần này:
 ### 🎯 Mục tiêu chính cần làm được:
@@ -149,4 +149,55 @@ Học phần này để:
 - Làm chủ Thymeleaf, @ModelAttribute, và Form Binding
 - Tạo ứng dụng Spring MVC thực tế có tính tương tác và kiểm tra dữ liệu đầu vào
 - Sẵn sàng xây dựng hệ thống nhập liệu hoặc hệ thống quản lý có form chuyên nghiệp
+-----------------------------------------------------------------------------------------------------------------
+# Section 7
+## 📌 Trọng tâm cần nắm trong phần này:
+### 🎯 Mục tiêu chính cần làm được:
 
+- ✅ Xây dựng ứng dụng CRUD hoàn chỉnh
+Cho phép Create - Read - Update - Delete dữ liệu trong database.
+
+- ✅ Thiết kế Entity & Mapping với Database
+Sử dụng @Entity, @Table, @Id, @GeneratedValue để ánh xạ class Java với bảng DB.
+
+- ✅ Tạo Repository với Spring Data JPA
+Dùng JpaRepository để thao tác DB mà không cần viết SQL thủ công.
+
+- ✅ Phân tầng Controller - Service - DAO
+Tách biệt các lớp Controller (API), Service (xử lý nghiệp vụ) và DAO/Repository (truy vấn DB).
+
+- ✅ Tạo API lấy danh sách Employee
+Xây dựng endpoint GET /api/employees để lấy tất cả employee từ DB.
+
+- ✅ Tạo API thêm Employee mới
+Xây dựng endpoint POST /api/employees nhận dữ liệu JSON và lưu vào DB.
+
+- ✅ Tạo API cập nhật Employee
+Xây dựng endpoint PUT /api/employees/{id} để sửa toàn bộ thông tin employee.
+
+- ✅ Tạo API xóa Employee
+Xây dựng endpoint DELETE /api/employees/{id} để xóa employee khỏi DB.
+
+- ✅ Xử lý Exception khi không tìm thấy bản ghi
+Trả về 404 Not Found nếu ID không tồn tại.
+
+- ✅ Test toàn bộ chức năng bằng Postman
+Gửi request và kiểm tra dữ liệu trả về ở dạng JSON.
+---
+## 🧱 Ví dụ:
+API CRUD cho Employee:
+| API Endpoint             | HTTP Method | Mô tả                              |
+|--------------------------|-------------|------------------------------------|
+| `/api/employees`         | GET         | Lấy danh sách tất cả employee      |
+| `/api/employees/{id}`    | GET         | Lấy thông tin employee theo ID     |
+| `/api/employees`         | POST        | Thêm employee mới                  |
+| `/api/employees/{id}`    | PUT         | Cập nhật employee                  |
+| `/api/employees/{id}`    | DELETE      | Xóa employee                       |
+
+
+## 🔁 Tổng kết:
+Học phần này để:
+- Thành thạo thao tác CRUD với Spring Boot & JPA
+- Hiểu rõ cách mapping Entity ↔ Database
+- Xử lý dữ liệu và lỗi trong API một cách chuyên nghiệp
+- Hoàn thiện backend API chuẩn RESTful phục vụ frontend hoặc mobile app
