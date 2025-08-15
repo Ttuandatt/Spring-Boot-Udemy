@@ -49,6 +49,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteById(int theId) {
         employeeRepository.deleteById(theId);
     }
+
+    public List<Employee> findAllByLastNameAsc(){
+        return employeeRepository.findAllByOrderByLastNameAsc();
+    }
+
+    public List<Employee> findAllByLastNameDesc(){
+        return employeeRepository.findAllByOrderByLastNameDesc();
+    }
 }
 
 
