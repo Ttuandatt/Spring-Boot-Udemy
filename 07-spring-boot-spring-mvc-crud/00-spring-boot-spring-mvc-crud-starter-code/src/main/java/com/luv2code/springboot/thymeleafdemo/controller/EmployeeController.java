@@ -36,8 +36,6 @@ public class EmployeeController {
     }
 
 
-
-
     // add mapping for "/showAddForm"
     @GetMapping("/showAddForm")
     public String showAddForm(Model model) {
@@ -57,5 +55,18 @@ public class EmployeeController {
 
         // use a redirect to prevent duplicate submissions
         return "redirect:/employees/list";
+    }
+
+    @GetMapping("/showUpdateForm")
+    public String showUpdateForm(@RequestParam("employeeId") int theId, Model model) {
+
+        // get the employee from the service
+        Employee employee = employeeService.findById(theId);
+
+        // set employee as a model attribute to pre-populate the form
+        model.addAttribute("employee", employee);
+
+        // send over to our form
+        return "employees/employee-form";
     }
 }
