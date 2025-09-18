@@ -150,7 +150,8 @@ Học phần này để:
 - Tạo ứng dụng Spring MVC thực tế có tính tương tác và kiểm tra dữ liệu đầu vào
 - Sẵn sàng xây dựng hệ thống nhập liệu hoặc hệ thống quản lý có form chuyên nghiệp
 -----------------------------------------------------------------------------------------------------------------
-# Section 7
+
+# Section 7 - Spring MVC CRUD
 ## 📌 Trọng tâm cần nắm trong phần này:
 ### 🎯 Mục tiêu chính cần làm được:
 
@@ -201,3 +202,67 @@ Học phần này để:
 - Hiểu rõ cách mapping Entity ↔ Database
 - Xử lý dữ liệu và lỗi trong API một cách chuyên nghiệp
 - Hoàn thiện backend API chuẩn RESTful phục vụ frontend hoặc mobile app
+-----------------------------------------------------------------------------------------------------------------
+
+# Section 8: Spring MVC Security
+## 📌 Trọng tâm cần nắm trong phần này:
+### 🎯 Mục tiêu chính cần làm được:
+
+- ✅ Hiểu tổng quan Spring Security
+Cách Spring Security bảo vệ ứng dụng MVC bằng xác thực (authentication) và phân quyền (authorization).
+
+- ✅ Cấu hình Spring Security cơ bản
+Sử dụng HttpSecurity và SecurityFilterChain để bật bảo mật mặc định.
+
+- ✅ Tạo Custom Login Form
+Tùy chỉnh form đăng nhập thay cho trang mặc định, xử lý lỗi đăng nhập.
+
+- ✅ Kết hợp Bootstrap
+Dùng Bootstrap để tạo giao diện login đẹp mắt.
+
+- ✅ Thêm chức năng Logout
+Cho phép người dùng thoát và xóa session bảo mật.
+
+- ✅ Hiển thị thông tin người dùng đăng nhập
+Lấy username, roles và hiển thị trong trang web.
+
+- ✅ Phân quyền URL theo Role
+Dùng antMatchers(...).hasRole("...") để giới hạn quyền truy cập.
+
+- ✅ Tạo trang Access Denied tùy chỉnh
+Hiển thị thông báo rõ ràng khi user không có quyền.
+
+- ✅ Hiển thị nội dung theo Role trong View
+Sử dụng tag <sec:authorize> hoặc Thymeleaf Extras.
+
+- ✅ Xác thực bằng JDBC
+Kết nối DB với bảng mặc định users, authorities hoặc bảng tùy chỉnh.
+
+- ✅ Mã hóa mật khẩu với BCrypt
+Lưu mật khẩu an toàn thay vì plain text.
+
+- ✅ Hỗ trợ Custom Tables với JPA/Hibernate
+Dùng entity riêng thay cho bảng mặc định của Spring Security.
+---
+## 🧱 Ví dụ:
+
+Xây dựng bảo mật cho website quản lý nhân viên:
+
+| Chức năng                               | Vai trò yêu cầu     |
+|-----------------------------------------|----------------------|
+| Truy cập `/employees/list`              | `USER`, `ADMIN`      |
+| Thêm nhân viên `/employees/add`         | `ADMIN`              |
+| Cập nhật nhân viên `/employees/update`  | `ADMIN`              |
+| Xóa nhân viên `/employees/delete`       | `ADMIN`              |
+| Đăng nhập bằng form tùy chỉnh           | Tất cả người dùng    |
+| Xem trang Access Denied khi thiếu quyền | User không đủ role   |
+
+## 🔁 Tổng kết:
+
+Học phần này để:
+
+- Biết cách tích hợp Spring Security vào Spring MVC
+- Tạo Custom Login Form thân thiện và chuyên nghiệp
+- Hiển thị thông tin user, logout, phân quyền dựa theo role
+- Xác thực bằng JDBC, BCrypt, Custom Tables
+- Tự tin triển khai một hệ thống bảo mật chuẩn doanh nghiệp với Spring MVC
