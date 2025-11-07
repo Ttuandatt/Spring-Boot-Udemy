@@ -41,7 +41,7 @@ public class DemoSecurityConfig {
                 .formLogin(form ->
                         form
                                 .loginPage("/showMyLoginPage") // custom login page
-                                .loginProcessingUrl("/authenticateTheUser") // login form POST action URL
+                                .loginProcessingUrl("/authenticateTheUser") // login form POST action URL. This URL will be called in html form in templates folder
                                 .permitAll() // allow everyone to see login page
         );
 
