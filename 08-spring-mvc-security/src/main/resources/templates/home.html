@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> <!-- xmlns is a unique identifier for XML elements, attributes-->
 <head>
     <meta charset="UTF-8">
     <title>Demo Security</title>
@@ -7,7 +8,17 @@
 <body>
 <h1>Welcome to the Demo Security Application</h1>
 <hr>
-Hi there!!!! Welcome to our site.
+    <p>
+    Hi there!!!! Welcome to our site.
+    </p>
+
+    <!-- Display the logged-in user's name and roles -->
+    <p>
+        User: <span sec:authentication="principal.username"></span>
+    </p>
+    <p>
+        Role(s): <span sec:authentication="principal.authorities"></span>
+    </p>
 
     <!-- Add a logout button -->
     <form action="#" th:action="@{/logout}" method="POST">
