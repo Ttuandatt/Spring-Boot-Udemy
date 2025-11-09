@@ -12,4 +12,16 @@ public class DemoController {
         return  "home";
     }
 
+    // add request mapping for /manager
+    @GetMapping("/manager")
+    public String showManager(){
+        return "manager";
+    }
+
+    // add request mapping for /admin
+    @GetMapping("/admin")
+    public String showAdmin(){
+        return "admin";
+    }
+
 }
