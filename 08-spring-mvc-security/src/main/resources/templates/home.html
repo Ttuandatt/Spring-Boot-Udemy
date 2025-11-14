@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> <!-- xmlns is a unique identifier for XML elements, attributes-->
 <head>
     <meta charset="UTF-8">
@@ -25,7 +26,6 @@
     <p>
         <a th:href="@{/admin}">Admin Section</a>
             Only users with ADMIN role can see this.
-        </a>
     </p>
 
     <!-- Add a logout button -->

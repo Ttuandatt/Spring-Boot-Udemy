@@ -10,23 +10,26 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class DemoSecurityConfig {
+    private static final String EMPLOYEE = "EMPLOYEE";
+    private static final String MANAGER = "MANAGER";
+    private static final String ADMIN = "ADMIN";
 
     @Bean
     public InMemoryUserDetailsManager userDetailsManager() {
         UserDetails john = User.builder()
                 .username("john")
                 .password("{noop}test123")
-                .roles("EMPLOYEE")
+                .roles(EMPLOYEE)
                 .build();
         UserDetails mary = User.builder()
                 .username("mary")
                 .password("{noop}test123")
-                .roles("EMPLOYEE", "MANAGER")
+                .roles(EMPLOYEE, MANAGER)
                 .build();
         UserDetails susan = User.builder()
                 .username("susan")
                 .password("{noop}test123")
-                .roles("EMPLOYEE", "MANAGER", "ADMIN")
+                .roles(EMPLOYEE, MANAGER, ADMIN)
                 .build();
 
         return new InMemoryUserDetailsManager(john, mary, susan);
@@ -36,9 +39,10 @@ public class DemoSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers("/").hasRole("EMPLOYEE")
-                        .requestMatchers("/manager/**").hasRole("MANAGER")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/").hasRole(EMPLOYEE)
+                        .requestMatchers("/", "/showMyLoginPage", "/access-denied").permitAll()
+                        .requestMatchers("/manager/**").hasRole(MANAGER)
+                        .requestMatchers("/admin/**").hasRole(ADMIN)
         )
                 .formLogin(form ->
                         form
@@ -47,7 +51,10 @@ public class DemoSecurityConfig {
                                 .permitAll() // allow everyone to see login page
 
                 )
-                .logout(logout -> logout.permitAll()); // allow everyone to see logout page
+                .logout(logout -> logout.permitAll()) // allow everyone to see logout page
+                .exceptionHandling(handling ->
+                        handling.accessDeniedPage("/access-denied") // custom access denied page
+                );
 
         return http.build();
     }
